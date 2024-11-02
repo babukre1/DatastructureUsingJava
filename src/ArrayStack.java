@@ -1,5 +1,3 @@
-import javax.naming.InitialContext;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
@@ -40,7 +38,7 @@ public class ArrayStack<T> {
         return result;
     }
 
-    public T peek(T element) {
+    public T peek() {
         return stack[top];
     }
 
@@ -49,7 +47,7 @@ public class ArrayStack<T> {
     }
 
     public void push(T element) {
-        if (isfull()) {
+        if (isFull()) {
             stack = Arrays.copyOf(stack, stack.length * 2); // expanding Capacity
             System.out.println("Array was full and got expanded by 2");
         }
@@ -57,7 +55,7 @@ public class ArrayStack<T> {
         top++;
     }
 
-    public boolean isfull() {
+    public boolean isFull() {
         return stack.length == top;
     }
 
@@ -104,14 +102,14 @@ public class ArrayStack<T> {
         }
 
         for (int i = 0; i < arr1.size(); i++) {
-            boolean duplicated = false;
+            boolean duplicated;
             duplicated = isDuplicated(this, arr1.getElementByIndex(i));
             if (!duplicated)
                 this.push(arr1.stack[i]);
         }
 
         for (int i = 0; i < arr2.size(); i++) {
-            boolean duplicated = false;
+            boolean duplicated;
             duplicated = isDuplicated(this, arr2.getElementByIndex(i));
             if (!duplicated)
                 this.push(arr2.stack[i]);
