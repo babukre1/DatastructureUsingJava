@@ -5,22 +5,21 @@ import java.util.Stack;
 public class Main {
 
 
-
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Type some text t reverse");
+        ArrayStack<String> arr1 = new ArrayStack<>();
+        arr1.push("ahmed");
+        arr1.push("ahmed");
 
-        String original = input.next();
-        StringBuffer reversed = new StringBuffer();
-        long startTime = System.nanoTime();
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed.append(original.charAt(i));
-        }
-        long endTime = System.nanoTime();
-        
+        ArrayStack<String> arr2 = new ArrayStack<>(10);
+        arr2.push("ahmed");
+        arr2.push("omar");
+        arr2.push("omar");
+        arr2.push("omar");
 
-        System.out.println(endTime - startTime);
 
-        System.out.println(reversed.toString());
+        ArrayStack<String> mergedArray = new ArrayStack<>();
+        System.out.println(mergedArray);
+        mergedArray.merge(arr1, arr2);
+        mergedArray.display();
     }
 }
