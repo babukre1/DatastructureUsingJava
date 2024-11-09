@@ -69,16 +69,16 @@ public class ArrayStack<T> {
         return stack.length;
     }
 
-    public T getElementByIndex(int i) {
-        return stack[i];
-    }
+//    private T getElementByIndex(int i) {
+//        return stack[i];
+//    }
 
-    private boolean isDuplicated(ArrayStack array, T element) {
-        if (array.size() == 0) {
+    boolean isDuplicated(ArrayStack<T> array, T element) {
+        if (array.getLength() == 0) {
             return false;
         }
         for (int i = 0; i < array.size(); i++) {
-            if (array.getElementByIndex(i) == element) {
+            if (array.stack[i] == element) {
                 return true;
             }
         }
@@ -94,23 +94,21 @@ public class ArrayStack<T> {
     }
 
     public void merge(ArrayStack<T> arr1, ArrayStack<T> arr2) {
-        int newSize = arr1.size() + arr2.size();
+        int mergedArraySize = arr1.size() + arr2.size();
 
-
-        if (stack.length < newSize) {
-            stack = Arrays.copyOf(stack, newSize);
+        if (stack.length < mergedArraySize) {
+            stack = Arrays.copyOf(stack, mergedArraySize);
         }
 
         for (int i = 0; i < arr1.size(); i++) {
-            boolean duplicated;
-            duplicated = isDuplicated(this, arr1.getElementByIndex(i));
+            boolean duplicated = isDuplicated(this, arr1.stack[i]);
             if (!duplicated)
                 this.push(arr1.stack[i]);
         }
 
         for (int i = 0; i < arr2.size(); i++) {
             boolean duplicated;
-            duplicated = isDuplicated(this, arr2.getElementByIndex(i));
+            duplicated = isDuplicated(this, arr2.stack[i]);
             if (!duplicated)
                 this.push(arr2.stack[i]);
         }
