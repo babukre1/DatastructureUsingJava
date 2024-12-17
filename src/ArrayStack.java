@@ -2,15 +2,6 @@ import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class ArrayStack<T> {
-    // isEmpty Done.
-    // size Done.
-    // push  Done.
-    // pop Done.
-    // peek Done.
-    // isFull
-    // display - displays elements stack from last to first.
-    // getLength - get full length of the ArrayStack including nulls.
-
     int top;
     private final static int DEFAULT_CAPACITY = 2;
     private T[] stack;
